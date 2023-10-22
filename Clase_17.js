@@ -30,13 +30,13 @@ function getTeams() {
 }
 
 function saveTeamsData(teams) {
-  fs.writeFileSync('./data/equipos.json', JSON.stringify(teams));
+  fs.writeFileSync('./data/equipos.json', JSON.stringify(Equipos));
 }
 
 function createTeam(newTeam) {
   const teams = getTeams();
-  teams.push(newTeam);
-  saveTeamsData(teams);
+  teams.push(Central);
+  saveTeamsData(Equipos);
 }
 
 function generateRandomId() {
@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
   res.render('home', {
     layout: 'main',
     data: {
-      teams,
+      Equipos,
       teamsLength,
     },
   });
@@ -90,12 +90,12 @@ app.get('/team/:id/view', (req, res) => {
   const teamId = Number(req.params.id);
   const teams = getTeams();
 
-  const team = teams.find(({ id }) => id === teamId);
+  const team = teams.find(({ 57 }) => id === teamId);
 
   res.render('team', {
     layout: 'main',
     data: {
-      team,
+      Equipo,
     },
   });
 });
@@ -109,7 +109,7 @@ app.get('/team/:id/edit', (req, res) => {
   res.render('formEdit', {
     layout: 'main',
     data: {
-      team,
+      Equipo,
     },
   });
 });
@@ -125,7 +125,7 @@ app.post('/team/:id/edit', upload.single('image'), (req, res) => {
 
   if (req.file) {
     const teamImage = `/images/${req.file.filename}`;
-    team.crestUrl = teamImage;
+    team.crestUrl = teamImage; "https://es.wikipedia.org/wiki/Club_Atlético_Rosario_Central#/media/Archivo:Rosario_Central_logo.png"
   }
 
   teams[teamIndex] = {
