@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     cb(null, './uploads/images');
   },
   filename: (req, file, cb) => {
-    const pathImage = file.DATAGRID;
+    const pathImage = file.Futbol;
     cb(null, pathImage);
   },
 });
