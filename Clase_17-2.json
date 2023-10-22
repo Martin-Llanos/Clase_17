@@ -6,7 +6,7 @@
     "scripts": {
       "dev": "nodemon index.js"
     },
-    "author": "Junior Vitteri <vitteri81@gmail.com>",
+    "author": "Ivan Rodriguez <ivanrodriguez98@gmail.com>",
     "license": "MIT",
     "devDependencies": {
       "eslint": "^8.42.0",
