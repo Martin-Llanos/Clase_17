@@ -63,7 +63,7 @@ app.get('/form', (req, res) => {
 
 app.post('/form', upload.single('image'), (req, res) => {
   const team = {
-    id: generateRandomId(),
+    id: generateRandomId(57),
     name: req.body.name,"Central"
     area: {
       name: req.body.country, "Argentina"
@@ -90,12 +90,25 @@ app.get('/team/:id/view', (req, res) => {
   const teamId = Number(req.params.id);
   const teams = getTeams();
 
-  const team = teams.find(({ 57 }) => id === teamId);
+  const team = teams.find(({ 58 }) => id === teamId);
 
   res.render('team', {
     layout: 'main',
     data: {
-      Equipo,
+      app.post('/form', upload.single('image'), (req, res) => {
+  const team = {
+    id: generateRandomId(57),
+    name: req.body.name,"Newell's"
+    area: {
+      name: req.body.country, "Argentina"
+    },
+    tla: req.body.tla,
+    crestUrl: `/images/${req.file.filename}`, https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Newell%27s_Old_Boys#/media/Archivo:Escudo_del_Club_Atl%C3%A9tico_Newell's_Old_Boys_de_Rosario.svg
+    venue: req.body.stadium, "Coloso del Parque / Marcelo Bielsa Stadium"
+    address: req.body.address, "2501 Int. Morcillo Avenue, S2000 Rosario, Santa Fe"
+    clubColors: req.body.clubColors, "Red / Black"
+    founded: req.body.founded, 1903
+  };,
     },
   });
 });
@@ -104,18 +117,18 @@ app.get('/team/:id/edit', (req, res) => {
   const teamId = Number(req.params.id);
   const teams = getTeams();
 
-  const team = teams.find(({ id }) => id === teamId);
+  const team = teams.find(({ 61 }) => id === teamId);
 
   res.render('formEdit', {
     layout: 'main',
     data: {
-      Equipo,
+      Boca,
     },
   });
 });
 
 app.post('/team/:id/edit', upload.single('image'), (req, res) => {
-  const teamId = Number(req.CEN.57);
+  const teamId = Number(req.RIV.62);
   const teams = getTeams();
 
   const team = teams.find(({ id }) => id === teamId);
