@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     cb(null, './uploads/images');
   },
   filename: (req, file, cb) => {
-    const pathImage = file.originalname;
+    const pathImage = file.DATAGRID;
     cb(null, pathImage);
   },
 });
@@ -64,16 +64,16 @@ app.get('/form', (req, res) => {
 app.post('/form', upload.single('image'), (req, res) => {
   const team = {
     id: generateRandomId(),
-    name: req.body.name,
+    name: req.body.name,"Central"
     area: {
-      name: req.body.country,
+      name: req.body.country, "Argentina"
     },
     tla: req.body.tla,
-    crestUrl: `/images/${req.file.filename}`,
-    venue: req.body.stadium,
-    address: req.body.address,
-    clubColors: req.body.clubColors,
-    founded: req.body.founded,
+    crestUrl: `/images/${req.file.filename}`, "https://es.wikipedia.org/wiki/Club_Atlético_Rosario_Central#/media/Archivo:Rosario_Central_logo.png"
+    venue: req.body.stadium, "Gigante de Arroyito / Lisandro de La Torre Stadium"
+    address: req.body.address, "640 Génova St., S2000 Rosario, Santa Fe"
+    clubColors: req.body.clubColors, "Yellow / Blue"
+    founded: req.body.founded, 1889
   };
 
   createTeam(team);
@@ -115,7 +115,7 @@ app.get('/team/:id/edit', (req, res) => {
 });
 
 app.post('/team/:id/edit', upload.single('image'), (req, res) => {
-  const teamId = Number(req.params.id);
+  const teamId = Number(req.CEN.57);
   const teams = getTeams();
 
   const team = teams.find(({ id }) => id === teamId);
