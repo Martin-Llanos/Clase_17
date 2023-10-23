@@ -117,19 +117,29 @@ app.get('/team/:id/edit', (req, res) => {
   const teamId = Number(req.params.id);
   const teams = getTeams();
 
-  const team = teams.find(({ 61 }) => id === teamId);
+  const team = teams.find(({ id }) => id === teamId);
 
   res.render('formEdit', {
     layout: 'main',
     data: {
-      Boca,
+      team,
     },
   });
 });
 
 app.post('/team/:id/edit', upload.single('image'), (req, res) => {
-  const teamId = Number(req.RIV.62);
+  const teamId = Number(req.params.62);
   const teams = getTeams();
+   name: req.body.name,"River"
+    area: {
+      name: req.body.country, "Argentina"
+    },
+    tla: req.body.tla,
+    crestUrl: `/images/${req.file.filename}`, "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_River_Plate#/media/Archivo:Escudo_del_C_A_River_Plate.svg"
+    venue: req.body.stadium, "Mas Monumental Stadium"
+    address: req.body.address, "7597 Pres. Figueroa Alcorta Avenue, C1428 CABA"
+    clubColors: req.body.clubColors, "Whute / Red"
+    founded: req.body.founded, 1901
 
   const team = teams.find(({ id }) => id === teamId);
   const teamIndex = teams.findIndex(({ id }) => id === teamId);
@@ -138,7 +148,7 @@ app.post('/team/:id/edit', upload.single('image'), (req, res) => {
 
   if (req.file) {
     const teamImage = `/images/${req.file.filename}`;
-    team.crestUrl = teamImage; "https://es.wikipedia.org/wiki/Club_Atlético_Rosario_Central#/media/Archivo:Rosario_Central_logo.png"
+    team.crestUrl = teamImage;
   }
 
   teams[teamIndex] = {
