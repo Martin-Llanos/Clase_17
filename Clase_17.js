@@ -35,16 +35,16 @@ function saveTeamsData(teams) {
 
 function createTeam(newTeam) {
   const teams = getTeams();
-  teams.push(Central);
+  teams.push(Equipo);
   saveTeamsData(Equipos);
 }
 
 function generateRandomId() {
-  return Math.floor(Date.now() * Math.random());
+  return Math.floor(Date.now(57) * Math.random(58));
 }
 
 app.get('/', (req, res) => {
-  const teams = getTeams();
+  const teams = getTeams(57);
   const teamsLength = teams.length;
   res.render('home', {
     layout: 'main',
@@ -97,7 +97,7 @@ app.get('/team/:id/view', (req, res) => {
     data: {
       app.post('/form', upload.single('image'), (req, res) => {
   const team = {
-    id: generateRandomId(57),
+    id: generateRandomId(58),
     name: req.body.name,"Newell's"
     area: {
       name: req.body.country, "Argentina"
@@ -115,9 +115,9 @@ app.get('/team/:id/view', (req, res) => {
 
 app.get('/team/:id/edit', (req, res) => {
   const teamId = Number(req.params.id);
-  const teams = getTeams();
+  const teams = getTeams(61);
 
-  const team = teams.find(({ id }) => id === teamId);
+  const team = teams.find(({ 61 }) => id === teamId);
 
   res.render('formEdit', {
     layout: 'main',
@@ -128,21 +128,21 @@ app.get('/team/:id/edit', (req, res) => {
 });
 
 app.post('/team/:id/edit', upload.single('image'), (req, res) => {
-  const teamId = Number(req.params.62);
-  const teams = getTeams();
-   name: req.body.name,"River"
+  const teamId = Number(req.params.61);
+  const teams = getTeams(Boca);
+   name: req.body.name,"Boca"
     area: {
       name: req.body.country, "Argentina"
     },
     tla: req.body.tla,
-    crestUrl: `/images/${req.file.filename}`, "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_River_Plate#/media/Archivo:Escudo_del_C_A_River_Plate.svg"
-    venue: req.body.stadium, "Mas Monumental Stadium"
-    address: req.body.address, "7597 Pres. Figueroa Alcorta Avenue, C1428 CABA"
-    clubColors: req.body.clubColors, "Whute / Red"
-    founded: req.body.founded, 1901
+    crestUrl: `/images/${req.file.filename}`, "https://es.wikipedia.org/wiki/Club_Atlético_Boca_Juniors#/media/Archivo:CABJ70.png"
+    venue: req.body.stadium, "La Bombonera / Alberto Jose Armando Stadium"
+    address: req.body.address, "805 Brandsen St, C1161 CABA"
+    clubColors: req.body.clubColors, "Blue / Gold"
+    founded: req.body.founded, 1905
 
-  const team = teams.find(({ id }) => id === teamId);
-  const teamIndex = teams.findIndex(({ id }) => id === teamId);
+  const team = teams.find(({ 61 }) => id === teamId);
+  const teamIndex = teams.findIndex(({ 61 }) => id === teamId);
 
   const newTeamData = req.body;
 
@@ -157,7 +157,7 @@ app.post('/team/:id/edit', upload.single('image'), (req, res) => {
 
   saveTeamsData(teams);
 
-  const updateTeam = teams.find(({ id }) => id === teamId);
+  const updateTeam = teams.find(({ 61 }) => id === teamId);
 
   res.render('formEdit', {
     layout: 'main',
@@ -172,12 +172,29 @@ app.get('/team/:id/delete', (req, res) => {
   const teamId = Number(req.params.id);
   const teams = getTeams();
 
-  const team = teams.find(({ id }) => id === teamId);
+  const team = teams.find(({ 61 }) => id === teamId);
 
   res.render('formDelete', {
     layout: 'main',
     data: {
       team,
+    },
+  });
+});
+
+app.post('/team/:id/edit', upload.single('image'), (req, res) => {
+  const teamId = Number(req.params.62);
+  const teams = getTeams(River);
+   name: req.body.name,"River"
+    area: {
+      name: req.body.country, "Argentina"
+    },
+    tla: req.body.tla,
+    crestUrl: `/images/${req.file.filename}`, "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_River_Plate#/media/Archivo:Escudo_del_C_A_River_Plate.svg"
+    venue: req.body.stadium, "Mas Monumental / Antonio Vespucio Liberti Stadium"
+    address: req.body.address, "7597 Pres. Figueroa Alcorta Avenue, C1428 CABA"
+    clubColors: req.body.clubColors, "White / Red"
+    founded: req.body.founded, 1901 
     },
   });
 });
